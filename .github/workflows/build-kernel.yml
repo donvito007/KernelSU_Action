@@ -28,6 +28,7 @@ on:
       BUILD_EXTRA_COMMAND:
         description: 'Extra build commands(e.g. LLVM=1 LLVM_IAS=1)'
         required: false
+        default: 'LD=ld.lld'
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
         required: false
