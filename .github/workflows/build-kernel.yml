@@ -69,7 +69,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE && mkdir kernel_workspace && cd kernel_workspace
         mkdir clang-aosp
-        wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master-kernel-build-2022/clang-${{ env.CLANG_VERSION }}.tar.gz
+        wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/0a65f9d32d1d7131a3697af08320cc0d890395c1.tar.gz
         tar -C clang-aosp/ -zxvf clang-${{ env.CLANG_VERSION }}.tar.gz
         mkdir gcc-aosp
         wget https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9/archive/refs/heads/lineage-19.1.zip
