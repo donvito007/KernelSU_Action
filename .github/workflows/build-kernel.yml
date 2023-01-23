@@ -79,7 +79,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} android-kernel --depth=1
-        git reset --hard bffd6c8a23768153b453e982ef6f84811990fb00
+        git reset --hard bffd6c8
 
     - name: Setup KernelSU
       run: |
