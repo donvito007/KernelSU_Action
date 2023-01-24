@@ -1,5 +1,5 @@
 # Custom configuration
-DEFCONFIG=vendor/wayne_defconfig
+DEFCONFIG=enchilada_defconfig
 VENDOR_RAMDISK_BINARY=out/ramdisk
 BOOT_IMAGE_HEADER_VERSION=1
 BASE_ADDRESS=0x00000000
@@ -25,7 +25,7 @@ System.map
 KMI_GENERATION=0
 
 # Clang and Gcc environment configuration
-CLANG_VERSION=r450784d
+CLANG_VERSION=r475365b
 CROSS_COMPILE=aarch64-linux-gnu-
 CROSS_COMPILE_COMPAT=$CROSS_COMPILE_ARM32
 LLVM=1
