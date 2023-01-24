@@ -20,7 +20,13 @@ on:
         default: 'https://forum.xda-developers.com/attachments/crdroidandroid-13-0-20230112-fajita-v9-0_boot-img.5808997/'
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
+        default: 'true'
         required: true
+      KERNEL_DEFCONFIG:
+        description: 'KERNEL_DEFCONFIG'
+        required: true
+        default: 'enchilada_defconfig'
+        
 
 jobs:
   build:
