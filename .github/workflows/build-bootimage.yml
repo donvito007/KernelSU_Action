@@ -79,3 +79,12 @@ jobs:
       with:
         name: boot-su-${{ github.event.inputs.KERNEL_SOURCE_BRANCH }}-${{ env.BUILD_TIME }}.img
         path: kernel_workspace/out/${{ github.event.inputs.KERNEL_SOURCE_BRANCH }}/dist/boot.img
+    - name: Collect Outputs 收集所有输出文件
+      run: |
+        cd $GITHUB_WORKSPACE/kernel_workspace
+        zip -r output.zip ./out
+    - name: Upload Outputs 上传输出文件
+      uses: actions/upload-artifact@v3
+      with:
+        name: KernelSu-Outputs-${{ env.BUILD_TIME }}.zip
+        path: kernel_workspace/output.zip
