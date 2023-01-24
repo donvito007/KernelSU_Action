@@ -115,12 +115,3 @@ jobs:
       with:
         name: AnyKernel3-KernelSU-${{ env.DEVICE }}-${{ env.BUILD_TIME }}
         path: kernel_workspace/AnyKernel3/*
-    - name: Collect Outputs 收集所有输出文件
-      run: |
-        cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        zip -r output.zip ./out
-    - name: Upload Outputs 上传输出文件
-      uses: actions/upload-artifact@v3
-      with:
-        name: KernelSu-Outputs-${{ env.BUILD_TIME }}.zip
-        path: kernel_workspace/android-kernel/output.zip
