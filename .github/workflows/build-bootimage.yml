@@ -5,22 +5,22 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel Source'
         required: true
-        default: 'https://github.com/Diva-Room/Miku_kernel_xiaomi_wayne'
+        default: 'https://github.com/Terminator-J/crdroid_kernel_oneplus_sdm845'
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
-        default: 'TDA'
+        default: '13.0-m00'
       KERNEL_BUILD_CONFIG:
         description: 'Kernel Build Config'
         required: true
-        default: 'https://raw.githubusercontent.com/xiaoleGun/KernelSU_action/main/configs/build.config.wayne'
+        default: 'https://raw.githubusercontent.com/Three-taile-dragon/KernelSU_action/main/configs/build.config.wayne'
       BOOTIMAGE:
         description: 'Boot image to get ramdisk'
         required: true
-        default: 'https://raw.githubusercontent.com/xiaoleGun/KernelSU_action/main/boot/boot-wayne-from-Miku-UI-latest.img'
+        default: 'https://forum.xda-developers.com/attachments/crdroidandroid-13-0-20230112-fajita-v9-0_boot-img.5808997/'
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
-        required: false
+        required: true
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
         mkdir kernel_workspace && cd kernel_workspace
         git config --global user.name "Github Action"
         git config --global user.email "Action@github.com"
-        ../git-repo/repo init --depth=1 -u https://github.com/xiaoleGun/KernelSU_action -b main
+        ../git-repo/repo init --depth=1 -u https://github.com/Three-taile-dragon/KernelSU_Action -b main
         ../git-repo/repo sync -j$(nproc --all)
         sed -i '/SOURCE_DATE_EPOCH/d' build/_setup_env.sh
         sed -i 's/build-host/Mac-Pro/' build/_setup_env.sh
@@ -56,7 +56,7 @@ jobs:
     - name: Setup KernelSU
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+        curl -LSs "https://raw.githubusercontent.com/Three-taile-dragon/KernelSU/main/kernel/setup.sh" | bash -
         if [ ${{ github.event.inputs.USE_KPROBES }} = true ]; then
             echo "CONFIG_KPROBES=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
             echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
