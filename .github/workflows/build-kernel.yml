@@ -8,7 +8,7 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel Source'
         required: true
-        default: 'https://github.com/Terminator-J/crdroid_kernel_oneplus_sdm845'
+        default: 'https://github.com/Three-taile-dragon/crdroid_kernel_oneplus_sdm845'
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
