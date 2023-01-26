@@ -8,11 +8,11 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel Source'
         required: true
-        default: 'https://github.com/crdroidandroid/android_kernel_oneplus_sdm845'
+        default: 'https://github.com/Terminator-J/crdroid_kernel_oneplus_sdm845'
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
-        default: '13.0'
+        default: '13.0-m00'
       KERNEL_DEFCONFIG:
         description: 'Defconfig'
         required: true
@@ -24,14 +24,15 @@ on:
       CLANG_VERSION:
         description: 'Clang version'
         required: true
-        default: 'r450784d'
+        default: 'r475365b'
       BUILD_EXTRA_COMMAND:
         description: 'Extra build commands(e.g. LLVM=1 LLVM_IAS=1)'
         required: false
-        default: 'LD=ld.lld'
+        default: 'LD=ld.lld LLVM=1 LLVM_IAS=1'
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
-        required: false
+        required: true
+        default: 'true'
 
 jobs:
   build:
