@@ -32,7 +32,7 @@ on:
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
         required: false
-        default: 'true'
+        default: 'false'
 
 jobs:
   build:
