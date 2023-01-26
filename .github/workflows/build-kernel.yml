@@ -8,11 +8,11 @@ on:
       KERNEL_SOURCE:
         description: 'Kernel Source'
         required: true
-        default: 'https://github.com/crdroidandroid/android_kernel_oneplus_sdm845'
+        default: 'https://github.com/Terminator-J/crdroid_kernel_oneplus_sdm845'
       KERNEL_SOURCE_BRANCH:
         description: 'Branch'
         required: true
-        default: '13.0'
+        default: '13.0-m00'
       KERNEL_DEFCONFIG:
         description: 'Defconfig'
         required: true
@@ -28,10 +28,11 @@ on:
       BUILD_EXTRA_COMMAND:
         description: 'Extra build commands(e.g. LLVM=1 LLVM_IAS=1)'
         required: false
-        default: 'LD=ld.lld'
+        default: 'LD=ld.lld LLVM=1 LLVM_IAS=1'
       USE_KPROBES:
         description: 'If you want to use kprobes, please type "true"'
         required: false
+        default: 'true'
 
 jobs:
   build:
@@ -84,7 +85,7 @@ jobs:
     - name: Setup KernelSU
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        curl -LSs "https://raw.githubusercontent.com/Three-taile-dragon/KernelSU/main/kernel/setup.sh" | bash -
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
         if [ ${{ env.USE_KPROBES }} = true ]; then
             echo "CONFIG_KPROBES=y" >> arch/arm64/configs/${{ env.KERNEL_DEFCONFIG }}
             echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/${{ env.KERNEL_DEFCONFIG }}
