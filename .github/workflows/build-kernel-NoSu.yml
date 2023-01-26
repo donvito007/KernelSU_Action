@@ -1,4 +1,4 @@
-name: Build Kernel WithOut Su
+name: Build Kernel Without Su
 on:
   watch:
     types: [started]
